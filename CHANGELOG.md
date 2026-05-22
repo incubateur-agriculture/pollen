@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.2](https://github.com/incubateur-agriculture/pollen/compare/v0.1.1...v0.1.2) (2026-05-22)
+
+
+### Corrections
+
+* release-please et github pages corrige l'organisation entre les branches ([#14](https://github.com/incubateur-agriculture/pollen/issues/14)) ([0a5e216](https://github.com/incubateur-agriculture/pollen/commit/0a5e21669f618bcdaf21fba2a10f381d33fd92b4))
+
+
+### Divers
+
+* **staging:** release 0.2.0 ([#6](https://github.com/incubateur-agriculture/pollen/issues/6)) ([e23abbb](https://github.com/incubateur-agriculture/pollen/commit/e23abbb03eba169832af7de6b1933f0b5a67a4a6))
+
 ## [0.1.1](https://github.com/incubateur-agriculture/pollen/compare/v0.1.0...v0.1.1) (2026-05-22)
 
 
