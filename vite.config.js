@@ -52,6 +52,9 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': `${__dirname}${appConfig.root}/src`,
+        '@components': `${__dirname}src/components`,
+        '@styles': `${__dirname}src/css`,
+        '@services': `${__dirname}src/services`
       }
     }
   }
