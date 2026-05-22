@@ -13,9 +13,9 @@ const handleClick = () => {
 <template>
   <li class="fr-card fr-p-2w bdc-card" @click="handleClick" :class="{ 'is-selected': props.isSelected }">
     <div class="fr-grid-row fr-grid-row--gutters">
-      <div class="bdc-card__top fr-col-3">
+      <div class="bdc-card__left fr-col-3">
         <h2 class="fr-h6 fr-mb-1v">{{ record.nom }}</h2>
-        <div class="bdc-card__top__tags">
+        <div>
           <DsfrTag :label="record.attributaire" class="fr-mr-1w" :small="true"/>
           <DsfrTag :label="record.marche" :small="true"/>
         </div>
@@ -37,8 +37,7 @@ const handleClick = () => {
   &:hover, &.is-selected  {
     background-color: var(--background-alt-blue-france);
   }
-
-  &__top {
+  &__left {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
