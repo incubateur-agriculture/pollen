@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.2.0](https://github.com/incubateur-agriculture/pollen/compare/v0.1.1...v0.2.0) (2026-05-22)
+
+
+### Nouveautés
+
+* création de la structure des widgets customs en vue.js ([#1](https://github.com/incubateur-agriculture/pollen/issues/1)) ([62f6e79](https://github.com/incubateur-agriculture/pollen/commit/62f6e793fe2088ac0d754c898d0a32133cb37745))
+* **Hero:** ajout du custom widget ([#8](https://github.com/incubateur-agriculture/pollen/issues/8)) ([7498774](https://github.com/incubateur-agriculture/pollen/commit/749877440110082d24d27c3c103d54f38d37ad31))
+* **Liste bons de commande:** ajout du custom widget ([#9](https://github.com/incubateur-agriculture/pollen/issues/9)) ([a2d6c62](https://github.com/incubateur-agriculture/pollen/commit/a2d6c62af2da698672493d358c4e33a7695b5e3e))
+* **Infos bon de commande:** ajout du custom widget ([#10](https://github.com/incubateur-agriculture/pollen/issues/10)) ([d87b553](https://github.com/incubateur-agriculture/pollen/commit/d87b5537aca293f5f611fb108551a2175a05048c))
+
+
+### Corrections
+
+* diverses améliorations sur les github actions ([#11](https://github.com/incubateur-agriculture/pollen/issues/11)) ([4a00b25](https://github.com/incubateur-agriculture/pollen/commit/4a00b252c9a0c7a4d0c920498da4dc4a377a11bc))
+
+
+### Divers
+
+* mise en place d'un déploiement automatique ([#3](https://github.com/incubateur-agriculture/pollen/issues/3)) ([6816f35](https://github.com/incubateur-agriculture/pollen/commit/6816f35c013995ee4fa6466353487f32d456ec31))
+
 ## [0.1.1](https://github.com/incubateur-agriculture/pollen/compare/v0.1.0...v0.1.1) (2026-05-22)
 
 
