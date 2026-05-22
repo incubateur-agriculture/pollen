@@ -1,0 +1,31 @@
+{
+  "name": "pollen",
+  "version": "0.1.0",
+  "description": "Customs Widgets Grist pour Pollen",
+  "type": "module",
+  "scripts": {
+    "dev:hero": "vite --mode intra-produit-hero",
+    "preview:hero": "vite preview --mode intra-produit-hero",
+    "build:hero": "vite build --mode intra-produit-hero",
+    "dev:bdc-liste": "vite --mode intra-bdc-liste",
+    "preview:bdc-liste": "vite preview --mode intra-bdc-liste",
+    "build:bdc-liste": "vite build --mode intra-bdc-liste",
+    "dev:bdc-infos": "vite --mode intra-bdc-infos",
+    "preview:bdc-infos": "vite preview --mode intra-bdc-infos",
+    "build:bdc-infos": "vite build --mode intra-bdc-infos",
+    "dev:all": "npm-run-all --parallel dev:hero dev:bdc-liste dev:bdc-infos",
+    "build:all": "npm-run-all build:hero build:bdc-liste build:bdc-infos"
+  },
+  "dependencies": {
+    "@gouvfr/dsfr": "^1.14.4",
+    "@gouvminint/vue-dsfr": "^8.16.1",
+    "@vueuse/core": "^14.3.0",
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "npm-run-all": "^4.1.5",
+    "sass-embedded": "^1.99.0",
+    "vite": "^8.0.13"
+  }
+}
