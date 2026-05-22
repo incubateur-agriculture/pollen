@@ -5,6 +5,7 @@ import '@gouvfr/dsfr/dist/utility/colors/colors.min.css'
 import '@gouvminint/vue-dsfr/styles'
 import VueDsfr from '@gouvminint/vue-dsfr'
 
+import '@styles/app-style.css'
 import App from './App.vue'
 
 const app = createApp(App)
