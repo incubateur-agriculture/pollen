@@ -1,0 +1,48 @@
+const columns = [
+  {
+    name: 'nom',
+    description: 'Nom du bon de commande',
+  }, 
+  {
+    name: 'chorus',
+    description: 'Numéro Chorus',
+  },
+  {
+    name: 'attributaire',
+    description: 'Attributaire',
+  },
+  {
+    name: 'marche',
+    description: 'Marche',
+  },
+  {
+    name: 'montantTotal',
+    description: 'Montant total',
+  },
+  {
+    name: 'montantConsomme',
+    description: 'Montant consommé',
+  }, 
+  {
+    name: 'montantRestant',
+    description: 'Montant restant à consommer',
+  },
+  {
+    name: 'dateBdc',
+    description: 'Date du bon de commande',
+  },
+  {
+    name: 'bdcPJ',
+    description: 'Bon de commande pj',
+  },
+  {
+    name: 'servicesFaits',
+    description: 'Services faits',
+  },
+  {
+    name: 'derniereModification',
+    description: 'Dernière modification',
+  },
+]
+
+export default columns
