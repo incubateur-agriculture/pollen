@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.2.2](https://github.com/incubateur-agriculture/pollen/compare/v0.2.1...v0.2.2) (2026-05-22)
+
+
+### Performance
+
+* force le lancement de release-please ([#21](https://github.com/incubateur-agriculture/pollen/issues/21)) ([bb66da2](https://github.com/incubateur-agriculture/pollen/commit/bb66da226403fe5cc5694ad54e3f3f333b06527e))
+
+
+### Divers
+
+* test deploiement automatisé après création manuelle de release v0.2.1 ([#20](https://github.com/incubateur-agriculture/pollen/issues/20)) ([c96e4ad](https://github.com/incubateur-agriculture/pollen/commit/c96e4ad0fe73f742ba086afba942089ff7d4ebbf))
+* test le déploiement automatique avec la github action ([#18](https://github.com/incubateur-agriculture/pollen/issues/18)) ([218c5d3](https://github.com/incubateur-agriculture/pollen/commit/218c5d3622ede269187a0f476f375068e0f786d7))
+* test le déploiement avec release-please automatique ([#19](https://github.com/incubateur-agriculture/pollen/issues/19)) ([9820844](https://github.com/incubateur-agriculture/pollen/commit/9820844140784cb043c4bdcf6de1bb87f3de32a1))
+* test release-please détection ([#22](https://github.com/incubateur-agriculture/pollen/issues/22)) ([04d3fc9](https://github.com/incubateur-agriculture/pollen/commit/04d3fc9baf98fbc3ea0a189ed4dbff83d74e3a63))
+
 ## [0.2.1](https://github.com/incubateur-agriculture/pollen/compare/v0.2.0...v0.2.1) (2026-05-22)
 
 
