@@ -37,6 +37,11 @@ const handleClick = () => {
   &:hover, &.is-selected  {
     background-color: var(--background-alt-blue-france);
   }
+  
+  &.is-selected {
+    background-image: linear-gradient(0deg,var(--text-title-blue-france),var(--text-title-blue-france)),linear-gradient(0deg,var(--text-title-blue-france),var(--text-title-blue-france)),linear-gradient(0deg,var(--text-title-blue-france),var(--text-title-blue-france)),linear-gradient(0deg,var(--text-title-blue-france),var(--text-title-blue-france)) !important;
+  }
+
   &__left {
     display: flex;
     flex-direction: column;
