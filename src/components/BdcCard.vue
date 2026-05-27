@@ -12,21 +12,17 @@ const handleClick = () => {
 </script>
 <template>
   <li class="fr-card fr-p-2w bdc-card" @click="handleClick" :class="{ 'is-selected': props.isSelected }">
-    <div class="fr-grid-row fr-grid-row--gutters">
-      <div class="bdc-card__left fr-col-3">
+    <div class="fr-grid-row fr-grid-row--gutters fr-mb-1w">
+      <div class="fr-col-10">
         <h2 class="fr-h6 fr-mb-1v">{{ record.nom }}</h2>
-        <div>
-          <DsfrTag :label="record.attributaire" class="fr-mr-1w" :small="true"/>
-          <DsfrTag :label="record.marche" :small="true"/>
-        </div>
+        <DsfrTag :label="record.attributaire" class="fr-mr-1w" :small="true"/>
+        <DsfrTag :label="record.marche" :small="true"/>
       </div>
-      <div class="fr-col-8">
-        <BdcJauge :record="record" />
-      </div>
-      <div class="fr-col-1 fr-grid-row fr-grid-row--middle fr-grid-row--right">
+      <div class="fr-col-2 fr-grid-row fr-grid-row--middle fr-grid-row--right">
         <span class="bdc-card__arrow fr-text-title--blue-france fr-icon-arrow-right-line" :class="{'fr-hidden': !props.isSelected}" aria-hidden="true"></span>
       </div>
     </div>
+    <BdcJauge :record="record" />
   </li>
 </template>
 
@@ -40,12 +36,6 @@ const handleClick = () => {
   
   &.is-selected {
     background-image: linear-gradient(0deg,var(--text-title-blue-france),var(--text-title-blue-france)),linear-gradient(0deg,var(--text-title-blue-france),var(--text-title-blue-france)),linear-gradient(0deg,var(--text-title-blue-france),var(--text-title-blue-france)),linear-gradient(0deg,var(--text-title-blue-france),var(--text-title-blue-france)) !important;
-  }
-
-  &__left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
 }
 </style>
