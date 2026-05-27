@@ -32,14 +32,6 @@ const columns = [
     description: 'Date du bon de commande',
   },
   {
-    name: 'bdcPJ',
-    description: 'Bon de commande pj',
-  },
-  {
-    name: 'servicesFaits',
-    description: 'Services faits',
-  },
-  {
     name: 'derniereModification',
     description: 'Dernière modification',
   },
