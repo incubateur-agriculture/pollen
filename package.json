@@ -13,8 +13,11 @@
     "dev:bdc-infos": "vite --mode intra-bdc-infos",
     "preview:bdc-infos": "vite preview --mode intra-bdc-infos",
     "build:bdc-infos": "vite build --mode intra-bdc-infos",
-    "dev:all": "npm-run-all --parallel dev:hero dev:bdc-liste dev:bdc-infos",
-    "build:all": "npm-run-all build:hero build:bdc-liste build:bdc-infos"
+    "dev:produit-selecteur": "vite --mode intra-produit-selecteur",
+    "preview:produit-selecteur": "vite preview --mode intra-produit-selecteur",
+    "build:produit-selecteur": "vite build --mode intra-produit-selecteur",
+    "dev:all": "npm-run-all --parallel dev:hero dev:bdc-liste dev:bdc-infos dev:produit-selecteur",
+    "build:all": "npm-run-all build:hero build:bdc-liste build:bdc-infos build:produit-selecteur"
   },
   "dependencies": {
     "@gouvfr/dsfr": "^1.14.4",

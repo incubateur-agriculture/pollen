@@ -8,6 +8,7 @@ const portMap = {
   'intra-produit-hero': 5174,
   'intra-bdc-liste': 5175,
   'intra-bdc-infos': 5176,
+  'intra-produit-selecteur': 5177,
 }
 
 const getAppConfig = (mode) => {
