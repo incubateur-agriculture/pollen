@@ -27,28 +27,21 @@ const restantColor = computed(() => {
   <GristContainer :columns="columns" @update:record="onRecord">
     <section v-if="currentRecord" class="bdc-infos fr-m-2w">
 
-      <div class="fr-grid-row fr-grid-row--gutters fr-grid-row--bottom">
-        <div class="fr-col-6">
-          <h1 class="fr-h3 fr-mb-1w">{{ currentRecord.nom }}</h1>
-          <div class="bdc-infos__tags">
-            <DsfrTag :label="currentRecord.attributaire" small/>
-            <DsfrTag :label="currentRecord.marche" small/>
-            <DsfrTag :label="`n° chorus ${currentRecord.chorus}`" small/>
-          </div>
-        </div>
-        <div class="fr-col-6">
-          <p class="fr-text--xs fr-mb-0">
-            <span class="bdc-infos__small-icon fr-icon-calendar-line"></span> 
-            Réception du bon de commande le {{ currentRecord.dateBdc || '(?)' }}
-          </p>
-          <p class="fr-text--xs fr-mb-0">
-            <span class="bdc-infos__small-icon fr-icon-refresh-line"></span> 
-            Dernière mise à jour {{ currentRecord.derniereModification }}
-          </p>
-        </div>
+      <h1 class="fr-h3 fr-mb-1w">{{ currentRecord.nom }}</h1>
+      <div class="bdc-infos__tags fr-mb-1w">
+        <DsfrTag :label="currentRecord.attributaire" small/>
+        <DsfrTag :label="currentRecord.marche" small/>
+        <DsfrTag :label="`n° chorus ${currentRecord.chorus}`" small/>
       </div>
 
-      <div class="fr-grid-row fr-grid-row--gutters">
+      <div class="fr-mb-2w">
+        <p class="fr-text--xs fr-mb-0">
+          <span class="bdc-infos__small-icon fr-icon-calendar-line"></span> 
+          Bon de commande réceptionné le {{ currentRecord.dateBdc || '(?)' }}
+        </p>
+      </div>
+
+      <div class="fr-grid-row fr-grid-row--gutters fr-mb-2w">
         <div class="fr-col-4">
           <div class="bdc-infos__montant fr-card fr-p-2w">
             <p class="fr-text--xs fr-mb-1v">Montant total</p>
@@ -68,15 +61,17 @@ const restantColor = computed(() => {
           </div>
         </div>
       </div> 
+
+      <p class="fr-text--xs">
+        <span class="bdc-infos__small-icon fr-icon-refresh-line"></span> 
+        Dernière mise à jour {{ currentRecord.derniereModification }}
+      </p>
     </section>
   </GristContainer>
 </template>
 
 <style lang="scss">
 .bdc-infos {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
 
   &__tags {
     display: flex;
