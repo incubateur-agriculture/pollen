@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/incubateur-agriculture/pollen/compare/v0.3.0...v0.3.1) (2026-05-27)
+
+
+### Corrections
+
+* **Vues bon de commande:** ré-organisation des informations ([#27](https://github.com/incubateur-agriculture/pollen/issues/27)) ([d727cbf](https://github.com/incubateur-agriculture/pollen/commit/d727cbf2833344985e1e78ec5d7e6df25f20ed38))
+
 ## [0.3.0](https://github.com/incubateur-agriculture/pollen/compare/v0.2.2...v0.3.0) (2026-05-27)
 
 
