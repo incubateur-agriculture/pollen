@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/incubateur-agriculture/pollen/compare/v0.2.2...v0.3.0) (2026-05-27)
+
+
+### Nouveautés
+
+* **Sélection de produit:** ajout du custom widget ([#26](https://github.com/incubateur-agriculture/pollen/issues/26)) ([cdb5889](https://github.com/incubateur-agriculture/pollen/commit/cdb5889b6a67bbab66762c3d9450415885b502fc))
+
+
+### Corrections
+
+* **Bons de commande:** simplifie les vues ([#24](https://github.com/incubateur-agriculture/pollen/issues/24)) ([67c69ca](https://github.com/incubateur-agriculture/pollen/commit/67c69caa3b09a44de3789a2917083dd693c08560))
+
 ## [0.2.2](https://github.com/incubateur-agriculture/pollen/compare/v0.2.1...v0.2.2) (2026-05-22)
 
 
