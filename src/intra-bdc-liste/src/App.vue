@@ -22,8 +22,7 @@ const selectRecord = (recordId) => {
 </script>
 <template>
   <GristContainer ref="gristContainerRef" :columns="columns" @update:record="onRecord" @update:records="onRecords">
-    <main class="bdc-liste fr-m-2w">
-      <h1 class="fr-h4 fr-mb-2w">Bons de commande :</h1>
+    <section class="bdc-liste fr-m-2w">
       <ul v-if="allRecords.length > 0" class="bdc-liste__list unstyled-list fr-pl-0">
         <BdcCard 
           v-for="record in allRecords" 
@@ -34,7 +33,7 @@ const selectRecord = (recordId) => {
         />
       </ul>
       <p v-else class="fr-text--xs fr-mb-0">Aucun bon de commande</p>
-    </main>
+    </section>
   </GristContainer>
 </template>
 

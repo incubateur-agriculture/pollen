@@ -21,26 +21,13 @@ const restantColor = computed(() => {
   else if (currentRecord.value.montantRestant < currentRecord.value.montantTotal * 0.5) return 'fr-background-alt--yellow-tournesol'
   else return 'fr-background-alt--green-bourgeon'
 })
-
-// Services faits
-const rowsServicesFaits = computed(() => {
-  if (!currentRecord.value.servicesFaits) return []
-  return currentRecord.value.servicesFaits.map(service => 
-    [
-      service.est_paye ? 'Oui' : 'Non', 
-      `${formatMontant(service.montant)} €`, 
-      service.livrable?.rowIds?.length > 0 ? 'Oui' : 'Non', 
-      service.date_reception_livrable ? new Date(service.date_reception_livrable).toLocaleDateString('fr-FR') : 'Non renseigné'
-    ]
-  )
-})
 </script>
 
 <template>
   <GristContainer :columns="columns" @update:record="onRecord">
-    <div v-if="currentRecord" class="bdc-infos fr-m-2w">
+    <section v-if="currentRecord" class="bdc-infos fr-m-2w">
 
-      <section class="fr-grid-row fr-grid-row--gutters fr-grid-row--bottom">
+      <div class="fr-grid-row fr-grid-row--gutters fr-grid-row--bottom">
         <div class="fr-col-6">
           <h1 class="fr-h3 fr-mb-1w">{{ currentRecord.nom }}</h1>
           <div class="bdc-infos__tags">
@@ -59,9 +46,9 @@ const rowsServicesFaits = computed(() => {
             Dernière mise à jour {{ currentRecord.derniereModification }}
           </p>
         </div>
-      </section>
+      </div>
 
-      <section class="fr-grid-row fr-grid-row--gutters">
+      <div class="fr-grid-row fr-grid-row--gutters">
         <div class="fr-col-4">
           <div class="bdc-infos__montant fr-card fr-p-2w">
             <p class="fr-text--xs fr-mb-1v">Montant total</p>
@@ -80,23 +67,8 @@ const rowsServicesFaits = computed(() => {
             <p class="fr-h6 fr-mb-0">{{ montantRestant }} €</p>
           </div>
         </div>
-      </section> 
-
-      <section>
-        <h3 class="fr-h5 fr-mb-1v">Services faits du bon de commande</h3>
-        <DsfrDataTable 
-          v-if="currentRecord.servicesFaits.length > 0"
-          class="bdc-infos__table"
-          title="Tableau des services faits du bon de commande pour le produit"
-          :no-caption="true"
-          :headersRow="['Payé', 'Montant', 'Livrable envoyé', 'Date de réception du livrable']" 
-          :rows="rowsServicesFaits"
-          :verticalBorders="true"
-          size="sm"
-        />
-        <p v-else class="fr-text--xs fr-mb-0">Aucun service fait renseigné pour le bon de commande</p>
-      </section>
-    </div>
+      </div> 
+    </section>
   </GristContainer>
 </template>
 
