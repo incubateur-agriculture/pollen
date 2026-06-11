@@ -30,7 +30,6 @@ const options = computed(() =>
 
 const onSelectChange = (recordId) => {
   const rowId = Number(recordId)
-  if (!Number.isFinite(rowId)) return
   selectedRecordId.value = rowId
   gristContainerRef.value?.updateCursorPos(rowId)
 }
@@ -42,7 +41,7 @@ const comiteMontantValide = computed(() => formatMontant(currentRecord.value.com
 </script>
 
 <template>
-  <GristContainer :columns="columns" @update:record="onRecord" @update:records="onRecords">
+  <GristContainer ref="gristContainerRef" :columns="columns" @update:record="onRecord" @update:records="onRecords">
     <DsfrHeader
       logo-text="maasa"
       service-title="Pollen"
