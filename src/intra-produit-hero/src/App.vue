@@ -37,7 +37,6 @@ const onSelectChange = (recordId) => {
 // Montants
 const montantAE = computed(() => formatMontant(currentRecord.value.montantAE))
 const montantCP = computed(() => formatMontant(currentRecord.value.montantCP))
-const comiteMontantValide = computed(() => formatMontant(currentRecord.value.comiteMontantValide))
 </script>
 
 <template>
@@ -64,49 +63,38 @@ const comiteMontantValide = computed(() => formatMontant(currentRecord.value.com
     </DsfrHeader>
     <main class="produit-hero fr-mx-2w fr-mt-4w">
       <div class="fr-grid-row">
-        <div class="fr-col-3 fr-pl-2w">
-          <h1 class="fr-mb-2w">{{ currentRecord.nom }}</h1>
-          <p class="fr-text--sm fr-mb-1v">
-            <span class="produit-hero__small-icon fr-text--xs fr-icon-calendar-line"></span>
-            Existe depuis le {{ currentRecord.dateCreation || '(non renseigné)'}}
-          </p>
-          <p class="fr-text--sm fr-mb-1v">
-            <span class="produit-hero__small-icon fr-icon-team-line"></span>
-            Dernier comité le {{ currentRecord.comiteDate || '(non renseigné)' }}
-          </p>
-          <p v-if="currentRecord.comiteLien" class="fr-text--sm fr-mb-1v">
-            <span class="produit-hero__small-icon fr-icon-file-text-line"></span>
-            Accéder 
-            <a :href="currentRecord.comiteLien" target="_blank">au relevé de décisions des comités</a>
-          </p>
+        <div class="fr-col-12 fr-col-md-8 fr-pl-2w">
+          <h1 class="fr-mb-1w">{{ currentRecord.nom }}</h1>
+          <div class="produit-hero__infos">
+            <p class="fr-text--sm fr-mb-0">
+              <span class="produit-hero__small-icon fr-text--xs fr-icon-calendar-line"></span>
+              Existe depuis le {{ currentRecord.dateCreation || '(non renseigné)'}}
+            </p>
+            <p class="fr-text--sm fr-mb-0">
+              <span class="produit-hero__small-icon fr-icon-team-line"></span>
+              Dernier comité le {{ currentRecord.comiteDate || '(non renseigné)' }}
+            </p>
+            <p v-if="currentRecord.comiteLien" class="fr-text--sm fr-mb-0">
+              <span class="produit-hero__small-icon fr-icon-file-text-line"></span>
+              Accéder 
+              <a :href="currentRecord.comiteLien" target="_blank">au relevé de décisions des comités</a>
+            </p>
+          </div>
         </div>
 
-        <div class="fr-col-5">
-          <DsfrHighlight>
-            <p>
-              Montant total des bons de commandes (AE) :
-              <strong>{{ montantAE }} €</strong>
-            </p>
-            <p>
-              Montant total des services faits (CP) :
-              <strong>{{ montantCP }} €</strong>
-            </p>
-          </DsfrHighlight>
-        </div>
-
-        <div class="fr-col-4">
-          <DsfrHighlight>
-            <p>
-              Montant validé lors du dernier comité :
-              <strong>{{ comiteMontantValide }} €</strong>
-            </p>
-            <p v-if="currentRecord.comiteLien != 'CENSORED'" class="fr-text--xs">
-              <a v-if="currentRecord.comiteLien"  :href="currentRecord.comiteLien" target="_blank">
-                Voir le relevé de décisions des comités
-              </a>
-              <span v-else class="fr-text--xs is-disabled">Aucun relevé de décisions des comités</span>
-            </p>
-          </DsfrHighlight>
+        <div class="produit-hero__container-cards fr-col-12 fr-col-md-4">
+          <div>
+            <div class="fr-card fr-p-2w">
+              <p class="fr-text--xs fr-mb-1v">Montant restant à engager</p>
+              <p class="fr-h6 fr-mb-0">{{ montantAE }} €</p>
+            </div>
+          </div>
+          <div>
+            <div class="fr-card fr-p-2w">
+              <p class="fr-text--xs fr-mb-1v">Montant restant à consommer</p>
+              <p class="fr-h6 fr-mb-0">{{ montantCP }} €</p>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -115,28 +103,31 @@ const comiteMontantValide = computed(() => formatMontant(currentRecord.value.com
 
 <style lang="scss">
 .produit-hero {
-  .fr-tag {
-    background-color: var(--border-default-blue-france);
-    color: white;
-  }
-  
-  .fr-highlight {
-    height: 100%;
-    align-content: center;
-  }
 
-  .fr-highlight p {
-    margin-bottom: 0;
+  &__header {
+    .fr-container {
+      max-width: none !important;
+    }
   }
 
   &__small-icon:before {
     transform: scale(0.8);
   }
 
-  &__header {
-    .fr-container {
-      max-width: none !important;
-    }
+  &__infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  &__container-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
 </style>
