@@ -65,11 +65,20 @@ const comiteMontantValide = computed(() => formatMontant(currentRecord.value.com
     <main class="produit-hero fr-mx-2w fr-mt-4w">
       <div class="fr-grid-row">
         <div class="fr-col-3 fr-pl-2w">
-          <h1 class="fr-mb-1w">{{ currentRecord.nom }}</h1>
-          <DsfrTag
-            :label="`Créé le ${currentRecord.dateCreation || ''}`"
-            icon="fr-icon-calendar-line"
-          />
+          <h1 class="fr-mb-2w">{{ currentRecord.nom }}</h1>
+          <p class="fr-text--sm fr-mb-1v">
+            <span class="produit-hero__small-icon fr-text--xs fr-icon-calendar-line"></span>
+            Existe depuis le {{ currentRecord.dateCreation || '(non renseigné)'}}
+          </p>
+          <p class="fr-text--sm fr-mb-1v">
+            <span class="produit-hero__small-icon fr-icon-team-line"></span>
+            Dernier comité le {{ currentRecord.comiteDate || '(non renseigné)' }}
+          </p>
+          <p v-if="currentRecord.comiteLien" class="fr-text--sm fr-mb-1v">
+            <span class="produit-hero__small-icon fr-icon-file-text-line"></span>
+            Accéder 
+            <a :href="currentRecord.comiteLien" target="_blank">au relevé de décisions des comités</a>
+          </p>
         </div>
 
         <div class="fr-col-5">
@@ -118,6 +127,10 @@ const comiteMontantValide = computed(() => formatMontant(currentRecord.value.com
 
   .fr-highlight p {
     margin-bottom: 0;
+  }
+
+  &__small-icon:before {
+    transform: scale(0.8);
   }
 
   &__header {

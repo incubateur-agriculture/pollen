@@ -23,6 +23,10 @@ const columns = [
     name: 'comiteLien',
     description: 'Lien des comités',
   },
+  {
+    name: 'comiteDate',
+    description: 'Date du dernier comité',
+  }
 ]
 
 export default columns
