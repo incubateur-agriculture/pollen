@@ -4,10 +4,35 @@ import { formatMontant } from '@services/formatter'
 import GristContainer from '@components/GristContainer.vue'
 import columns from './columns'
 
-// Produit sélectionné
 const currentRecord = ref({})
+const allRecords = ref([])
+const selectedRecordId = ref(null)
+const gristContainerRef = ref(null)
+
+// Grist events
 const onRecord = (record) => {
   currentRecord.value = grist.mapColumnNames(record) || record
+  selectedRecordId.value = record.id
+}
+
+const onRecords = (params) => {
+  const { table } = params
+  allRecords.value = grist.mapColumnNames(table) || table
+}
+
+// Sélecteur
+const options = computed(() =>
+  allRecords.value.map((record) => ({
+    value: record.id,
+    text: record.nom,
+  }))
+)
+
+const onSelectChange = (recordId) => {
+  const rowId = Number(recordId)
+  if (!Number.isFinite(rowId)) return
+  selectedRecordId.value = rowId
+  gristContainerRef.value?.updateCursorPos(rowId)
 }
 
 // Montants
@@ -17,7 +42,23 @@ const comiteMontantValide = computed(() => formatMontant(currentRecord.value.com
 </script>
 
 <template>
-  <GristContainer :columns="columns" @update:record="onRecord">
+  <GristContainer :columns="columns" @update:record="onRecord" @update:records="onRecords">
+    <DsfrHeader
+      logo-text="maasa"
+      service-title="Pollen"
+      service-description="L'outil pour suivre et plannifier le budget de son produit"
+      :quickLinks="[{label:'', to: ''}]"
+    >
+      <template #before-quick-links>
+        <DsfrSelect
+          label="Produit affiché :"
+          defaultUnselectedText="Sélectionner un produit"
+          :model-value="selectedRecordId"
+          :options="options"
+          @update:model-value="onSelectChange"
+        />
+      </template>
+    </DsfrHeader>
     <main class="produit-hero fr-mx-2w fr-mt-4w">
       <div class="fr-grid-row">
         <div class="fr-col-3 fr-pl-2w">
