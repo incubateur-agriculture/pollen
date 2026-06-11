@@ -43,19 +43,23 @@ const comiteMontantValide = computed(() => formatMontant(currentRecord.value.com
 <template>
   <GristContainer ref="gristContainerRef" :columns="columns" @update:record="onRecord" @update:records="onRecords">
     <DsfrHeader
+      class="produit-hero__header"
       logo-text="maasa"
       service-title="Pollen"
       service-description="L'outil pour suivre et plannifier le budget de son produit"
       :quickLinks="[{label:'', to: ''}]"
     >
       <template #before-quick-links>
-        <DsfrSelect
-          label="Produit affiché :"
-          defaultUnselectedText="Sélectionner un produit"
-          :model-value="selectedRecordId"
-          :options="options"
-          @update:model-value="onSelectChange"
-        />
+        <div class="produit-hero__selecteur">
+          <DsfrSelect
+            label="Produit affiché :"
+            :hideLabel="true"
+            defaultUnselectedText="Sélectionner un produit"
+            :model-value="selectedRecordId"
+            :options="options"
+            @update:model-value="onSelectChange"
+          />
+        </div>
       </template>
     </DsfrHeader>
     <main class="produit-hero fr-mx-2w fr-mt-4w">
@@ -114,6 +118,12 @@ const comiteMontantValide = computed(() => formatMontant(currentRecord.value.com
 
   .fr-highlight p {
     margin-bottom: 0;
+  }
+
+  &__header {
+    .fr-container {
+      max-width: none !important;
+    }
   }
 }
 </style>
