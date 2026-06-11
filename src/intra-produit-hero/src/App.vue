@@ -35,8 +35,9 @@ const onSelectChange = (recordId) => {
 }
 
 // Montants
-const montantAE = computed(() => formatMontant(currentRecord.value.montantAE))
-const montantCP = computed(() => formatMontant(currentRecord.value.montantCP))
+const montantRestantAE = computed(() => formatMontant(currentRecord.value.montantRestantAE))
+const montantRestantCP = computed(() => formatMontant(currentRecord.value.montantRestantCP))
+const montantBudgetDisponible = computed(() => formatMontant(currentRecord.value.montantBudgetDisponible))
 </script>
 
 <template>
@@ -63,7 +64,7 @@ const montantCP = computed(() => formatMontant(currentRecord.value.montantCP))
     </DsfrHeader>
     <main class="produit-hero fr-mx-2w fr-mt-4w">
       <div class="fr-grid-row">
-        <div class="fr-col-12 fr-col-md-8 fr-pl-2w">
+        <div class="fr-col-12 fr-col-md-7 fr-pl-2w">
           <h1 class="fr-mb-1w">{{ currentRecord.nom }}</h1>
           <div class="produit-hero__infos">
             <p class="fr-text--sm fr-mb-0">
@@ -82,17 +83,23 @@ const montantCP = computed(() => formatMontant(currentRecord.value.montantCP))
           </div>
         </div>
 
-        <div class="produit-hero__container-cards fr-col-12 fr-col-md-4">
+        <div class="produit-hero__container-cards fr-col-12 fr-col-md-5">
           <div>
             <div class="fr-card fr-p-2w">
               <p class="fr-text--xs fr-mb-1v">Montant restant à engager</p>
-              <p class="fr-h6 fr-mb-0">{{ montantAE }} €</p>
+              <p class="fr-h6 fr-mb-0">{{ montantRestantAE }} €</p>
             </div>
           </div>
           <div>
             <div class="fr-card fr-p-2w">
               <p class="fr-text--xs fr-mb-1v">Montant restant à consommer</p>
-              <p class="fr-h6 fr-mb-0">{{ montantCP }} €</p>
+              <p class="fr-h6 fr-mb-0">{{ montantRestantCP }} €</p>
+            </div>
+          </div>
+          <div>
+            <div class="fr-card fr-p-2w">
+              <p class="fr-text--xs fr-mb-1v">Budget disponible</p>
+              <p class="fr-h6 fr-mb-0">{{ montantBudgetDisponible }} €</p>
             </div>
           </div>
         </div>
