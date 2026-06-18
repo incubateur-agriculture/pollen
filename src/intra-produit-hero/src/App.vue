@@ -4,56 +4,104 @@ import { formatMontant } from '@services/formatter'
 import GristContainer from '@components/GristContainer.vue'
 import columns from './columns'
 
-// Produit sélectionné
 const currentRecord = ref({})
+const allRecords = ref([])
+const selectedRecordId = ref(null)
+const gristContainerRef = ref(null)
+
+// Grist events
 const onRecord = (record) => {
   currentRecord.value = grist.mapColumnNames(record) || record
+  selectedRecordId.value = record.id
+}
+
+const onRecords = (params) => {
+  const { table } = params
+  allRecords.value = grist.mapColumnNames(table) || table
+}
+
+// Sélecteur
+const options = computed(() =>
+  allRecords.value.map((record) => ({
+    value: record.id,
+    text: record.nom,
+  }))
+)
+
+const onSelectChange = (recordId) => {
+  const rowId = Number(recordId)
+  selectedRecordId.value = rowId
+  gristContainerRef.value?.updateCursorPos(rowId)
 }
 
 // Montants
-const montantAE = computed(() => formatMontant(currentRecord.value.montantAE))
-const montantCP = computed(() => formatMontant(currentRecord.value.montantCP))
-const comiteMontantValide = computed(() => formatMontant(currentRecord.value.comiteMontantValide))
+const montantRestantAE = computed(() => formatMontant(currentRecord.value.montantRestantAE))
+const montantRestantCP = computed(() => formatMontant(currentRecord.value.montantRestantCP))
+const montantBudgetDisponible = computed(() => formatMontant(currentRecord.value.montantBudgetDisponible))
 </script>
 
 <template>
-  <GristContainer :columns="columns" @update:record="onRecord">
-    <main class="produit-hero fr-mx-2w fr-mt-4w">
-      <div class="fr-grid-row">
-        <div class="fr-col-3 fr-pl-2w">
-          <h1 class="fr-mb-1w">{{ currentRecord.nom }}</h1>
-          <DsfrTag
-            :label="`Créé le ${currentRecord.dateCreation || ''}`"
-            icon="fr-icon-calendar-line"
+  <GristContainer ref="gristContainerRef" :columns="columns" @update:record="onRecord" @update:records="onRecords">
+    <DsfrHeader
+      class="produit-hero__header"
+      logo-text="maasa"
+      service-title="Pollen"
+      service-description="L'outil pour suivre et plannifier le budget de son produit"
+      :quickLinks="[{label:'', to: ''}]"
+    >
+      <template #before-quick-links>
+        <div class="produit-hero__selecteur">
+          <DsfrSelect
+            label="Produit affiché :"
+            :hideLabel="true"
+            defaultUnselectedText="Sélectionner un produit"
+            :model-value="selectedRecordId"
+            :options="options"
+            @update:model-value="onSelectChange"
           />
         </div>
-
-        <div class="fr-col-5">
-          <DsfrHighlight>
-            <p>
-              Montant total des bons de commandes (AE) :
-              <strong>{{ montantAE }} €</strong>
+      </template>
+    </DsfrHeader>
+    <main class="produit-hero fr-mx-2w fr-mt-4w">
+      <div class="fr-grid-row">
+        <div class="fr-col-12 fr-col-md-7 fr-pl-2w">
+          <h1 class="fr-mb-1w">{{ currentRecord.nom }}</h1>
+          <div class="produit-hero__infos">
+            <p class="fr-text--sm fr-mb-0">
+              <span class="produit-hero__small-icon fr-text--xs fr-icon-calendar-line"></span>
+              Existe depuis le {{ currentRecord.dateCreation || '(non renseigné)'}}
             </p>
-            <p>
-              Montant total des services faits (CP) :
-              <strong>{{ montantCP }} €</strong>
+            <p class="fr-text--sm fr-mb-0">
+              <span class="produit-hero__small-icon fr-icon-team-line"></span>
+              Dernier comité le {{ currentRecord.comiteDate || '(non renseigné)' }}
             </p>
-          </DsfrHighlight>
+            <p v-if="currentRecord.comiteLien" class="fr-text--sm fr-mb-0">
+              <span class="produit-hero__small-icon fr-icon-file-text-line"></span>
+              Accéder 
+              <a :href="currentRecord.comiteLien" target="_blank">au relevé de décisions des comités</a>
+            </p>
+          </div>
         </div>
 
-        <div class="fr-col-4">
-          <DsfrHighlight>
-            <p>
-              Montant validé lors du dernier comité :
-              <strong>{{ comiteMontantValide }} €</strong>
-            </p>
-            <p v-if="currentRecord.comiteLien != 'CENSORED'" class="fr-text--xs">
-              <a v-if="currentRecord.comiteLien"  :href="currentRecord.comiteLien" target="_blank">
-                Voir le relevé de décisions des comités
-              </a>
-              <span v-else class="fr-text--xs is-disabled">Aucun relevé de décisions des comités</span>
-            </p>
-          </DsfrHighlight>
+        <div class="produit-hero__container-cards fr-col-12 fr-col-md-5">
+          <div>
+            <div class="fr-card fr-p-2w">
+              <p class="fr-text--xs fr-mb-1v">Montant restant à engager</p>
+              <p class="fr-h6 fr-mb-0">{{ montantRestantAE }} €</p>
+            </div>
+          </div>
+          <div>
+            <div class="fr-card fr-p-2w">
+              <p class="fr-text--xs fr-mb-1v">Montant restant à consommer</p>
+              <p class="fr-h6 fr-mb-0">{{ montantRestantCP }} €</p>
+            </div>
+          </div>
+          <div>
+            <div class="fr-card fr-p-2w">
+              <p class="fr-text--xs fr-mb-1v">Budget disponible</p>
+              <p class="fr-h6 fr-mb-0">{{ montantBudgetDisponible }} €</p>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -62,18 +110,31 @@ const comiteMontantValide = computed(() => formatMontant(currentRecord.value.com
 
 <style lang="scss">
 .produit-hero {
-  .fr-tag {
-    background-color: var(--border-default-blue-france);
-    color: white;
-  }
-  
-  .fr-highlight {
-    height: 100%;
-    align-content: center;
+
+  &__header {
+    .fr-container {
+      max-width: none !important;
+    }
   }
 
-  .fr-highlight p {
-    margin-bottom: 0;
+  &__small-icon:before {
+    transform: scale(0.8);
+  }
+
+  &__infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  &__container-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
 </style>

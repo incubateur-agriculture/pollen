@@ -8,21 +8,25 @@ const columns = [
     description: 'Date de création',
   },
   {
-    name: 'montantAE',
-    description: 'Montant AE',
+    name: 'montantRestantAE',
+    description: 'Montant restant à engager',
   },
   {
-    name: 'montantCP',
-    description: 'Montant CP',
+    name: 'montantRestantCP',
+    description: 'Montant restant à consommer',
   },
   {
-    name: 'comiteMontantValide',
-    description: 'Montant validé par le comité',
+    name: 'montantBudgetDisponible',
+    description: 'Budget disponible',
   },
   {
     name: 'comiteLien',
     description: 'Lien des comités',
   },
+  {
+    name: 'comiteDate',
+    description: 'Date du dernier comité',
+  }
 ]
 
 export default columns
