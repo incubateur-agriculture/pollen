@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.4.0](https://github.com/incubateur-agriculture/pollen/compare/v0.3.1...v0.4.0) (2026-06-18)
+
+
+### Nouveautés
+
+* **Hero:** ré-organisation de l'en-tête de page et ajout du sélecteur du produit ([#29](https://github.com/incubateur-agriculture/pollen/issues/29)) ([482677a](https://github.com/incubateur-agriculture/pollen/commit/482677ae2fc768bb29f0250fb4e57ea937ad7d52))
+
+
+### Divers
+
+* **deps-dev:** bump vite from 8.0.14 to 8.0.16 ([#30](https://github.com/incubateur-agriculture/pollen/issues/30)) ([ec06f18](https://github.com/incubateur-agriculture/pollen/commit/ec06f18979175f2184ba43ca2477b7ee4c7176f0))
+* **Release please:** supprime le push vers main lors du merge de la PR ([#32](https://github.com/incubateur-agriculture/pollen/issues/32)) ([ecccfa4](https://github.com/incubateur-agriculture/pollen/commit/ecccfa42973227c6cc96d028c4f7750318dad4e4))
+
 ## [0.3.1](https://github.com/incubateur-agriculture/pollen/compare/v0.3.0...v0.3.1) (2026-05-27)
 
 
