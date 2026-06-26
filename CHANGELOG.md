@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.5.0](https://github.com/incubateur-agriculture/pollen/compare/v0.4.0...v0.5.0) (2026-06-26)
+
+
+### Nouveautés
+
+* **Bon de commande:** gère l'affichage des bons de commande clôturés ([#35](https://github.com/incubateur-agriculture/pollen/issues/35)) ([20eaf19](https://github.com/incubateur-agriculture/pollen/commit/20eaf191b733993dcee82fd8e3488ffa946d6fb3))
+
+
+### Corrections
+
+* **Hero:** corrige la marianne ([#33](https://github.com/incubateur-agriculture/pollen/issues/33)) ([42753ac](https://github.com/incubateur-agriculture/pollen/commit/42753acb78c575de1ec44a1d41f68cdafd7d0123))
+
 ## [0.4.0](https://github.com/incubateur-agriculture/pollen/compare/v0.3.1...v0.4.0) (2026-06-18)
 
 
