@@ -38,9 +38,9 @@ const restantColor = computed(() => {
           <span class="bdc-infos__small-icon fr-icon-calendar-line"></span> 
           Bon de commande réceptionné le {{ currentRecord.dateBdc || '(?)' }}
         </p>
-        <p class="fr-text--xs fr-mb-0 fr-text-default--info">
+        <p v-if="currentRecord.cloture" class="fr-text--xs fr-mb-0 fr-text-default--info">
           <span class="bdc-infos__small-icon fr-icon-info-fill"></span> 
-          <span class="fr-text--bold">Le bon de commande a été clôturé</span> : tout montant restant non consommé est perdu. En cas d'erreur veuillez contacter l'équipe Pollen.
+          <span class="fr-text--bold">Le bon de commande a été clôturé</span> : le montant restant non consommé est perdu. En cas d'erreur veuillez contacter l'équipe Pollen.
         </p>
       </div>
 
