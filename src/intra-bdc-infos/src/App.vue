@@ -26,7 +26,6 @@ const restantColor = computed(() => {
 <template>
   <GristContainer :columns="columns" @update:record="onRecord">
     <section v-if="currentRecord" class="bdc-infos fr-m-2w">
-
       <h1 class="fr-h3 fr-mb-1w">{{ currentRecord.nom }}</h1>
       <div class="bdc-infos__tags fr-mb-1w">
         <DsfrTag :label="currentRecord.attributaire" small/>
@@ -38,6 +37,10 @@ const restantColor = computed(() => {
         <p class="fr-text--xs fr-mb-0">
           <span class="bdc-infos__small-icon fr-icon-calendar-line"></span> 
           Bon de commande réceptionné le {{ currentRecord.dateBdc || '(?)' }}
+        </p>
+        <p v-if="currentRecord.cloture" class="fr-text--xs fr-mb-0 fr-text-default--info">
+          <span class="bdc-infos__small-icon fr-icon-info-fill"></span> 
+          <span class="fr-text--bold">Le bon de commande a été clôturé</span> : le montant restant non consommé est expiré. En cas d'erreur veuillez contacter l'équipe Pollen.
         </p>
       </div>
 
@@ -56,7 +59,7 @@ const restantColor = computed(() => {
         </div>
         <div class="fr-col-4">
           <div class="bdc-infos__montant fr-card fr-p-2w" :class="restantColor">
-            <p class="fr-text--xs fr-mb-1v">Reste à consommer</p>
+            <p class="fr-text--xs fr-mb-1v">{{ currentRecord.cloture ? 'Restant non consommé' : 'Reste à consommer' }}</p>
             <p class="fr-h6 fr-mb-0">{{ montantRestant }} €</p>
           </div>
         </div>

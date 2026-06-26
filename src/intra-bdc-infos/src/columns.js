@@ -35,6 +35,10 @@ const columns = [
     name: 'derniereModification',
     description: 'Dernière modification',
   },
+  {
+    name: 'cloture',
+    description: 'Est cloturé',
+  },
 ]
 
 export default columns
