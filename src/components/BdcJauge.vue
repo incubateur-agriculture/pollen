@@ -5,6 +5,7 @@ import { formatMontant } from '@services/formatter'
 const props = defineProps(['record'])
 const montantRestant = computed(() => formatMontant(props.record.montantRestant))
 const initDate = computed(() => props.record.dateBdc ? `Depuis le ${props.record.dateBdc}` : 'BDC pas encore reçu')
+const sentence = computed(() => props.record.cloture ? `Restant non consommé ${montantRestant.value} €` : `Restant à consommer ${montantRestant.value} €`)
 </script>
 
 <template>
@@ -14,7 +15,7 @@ const initDate = computed(() => props.record.dateBdc ? `Depuis le ${props.record
       :init="0"
       :target="record.montantTotal"
       :init-date="initDate"
-      :target-date="`Restant à consommer ${montantRestant} €`"
+      :target-date="sentence"
       ></gauge-chart>
   </div>
 </template>
