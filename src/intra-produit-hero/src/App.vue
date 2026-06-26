@@ -44,9 +44,9 @@ const montantBudgetDisponible = computed(() => formatMontant(currentRecord.value
   <GristContainer ref="gristContainerRef" :columns="columns" @update:record="onRecord" @update:records="onRecords">
     <DsfrHeader
       class="produit-hero__header"
-      logo-text="maasa"
+      :logo-text="['République', 'Française']"
       service-title="Pollen"
-      service-description="L'outil pour suivre et plannifier le budget de son produit"
+      service-description="L'outil pour suivre et plannifier le budget de son produit La Ruche numérique"
       :quickLinks="[{label:'', to: ''}]"
     >
       <template #before-quick-links>
