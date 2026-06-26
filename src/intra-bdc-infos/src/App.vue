@@ -59,7 +59,7 @@ const restantColor = computed(() => {
         </div>
         <div class="fr-col-4">
           <div class="bdc-infos__montant fr-card fr-p-2w" :class="restantColor">
-            <p class="fr-text--xs fr-mb-1v">Reste à consommer</p>
+            <p class="fr-text--xs fr-mb-1v">{{ currentRecord.cloture ? 'Restant non consommé' : 'Reste à consommer' }}</p>
             <p class="fr-h6 fr-mb-0">{{ montantRestant }} €</p>
           </div>
         </div>
