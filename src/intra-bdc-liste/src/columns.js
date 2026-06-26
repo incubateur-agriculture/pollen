@@ -26,7 +26,11 @@ const columns = [
   {
     name: 'dateBdc',
     description: 'Date du bon de commande',
-  }
+  },
+  {
+    name: 'cloture',
+    description: 'Est cloturé',
+  },
 ]
 
 export default columns
