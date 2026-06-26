@@ -14,6 +14,7 @@ const handleClick = () => {
   <li class="fr-card fr-p-2w bdc-card" @click="handleClick" :class="{ 'is-selected': props.isSelected }">
     <div class="fr-grid-row fr-grid-row--gutters fr-mb-1w">
       <div class="fr-col-10">
+        <DsfrBadge v-if="record.cloture" type="info" label="BDC Clôturé" :small="true" class="fr-mb-1w"/>
         <h2 class="fr-h6 fr-mb-1v">{{ record.nom }}</h2>
         <DsfrTag :label="record.attributaire" class="fr-mr-1w" :small="true"/>
         <DsfrTag :label="record.marche" :small="true"/>
