@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.5.1](https://github.com/incubateur-agriculture/pollen/compare/v0.5.0...v0.5.1) (2026-09-17)
+
+
+### Divers
+
+* **deps-dev:** bump brace-expansion from 1.1.14 to 1.1.21 ([#41](https://github.com/incubateur-agriculture/pollen/issues/41)) ([f633f99](https://github.com/incubateur-agriculture/pollen/commit/f633f99f21355a9ec16764c69b145e56e2e5fd01))
+* **deps-dev:** bump shell-quote from 1.8.4 to 1.10.0 ([#40](https://github.com/incubateur-agriculture/pollen/issues/40)) ([8a30b72](https://github.com/incubateur-agriculture/pollen/commit/8a30b72308a63ccb2110b04678ff40366201ccc5))
+* **deps:** bump immutable from 5.1.5 to 5.1.9 ([#39](https://github.com/incubateur-agriculture/pollen/issues/39)) ([8884fcd](https://github.com/incubateur-agriculture/pollen/commit/8884fcd3dcc9af00dd32fe95be8ade8e467e1dcb))
+* mise à jour des dépendances ([#38](https://github.com/incubateur-agriculture/pollen/issues/38)) ([dbf4821](https://github.com/incubateur-agriculture/pollen/commit/dbf48210217d0a14949d1acf8ff1cdc51afc4256))
+
+
+### Documentation
+
+* ajout de la documentation des widgets customs ([#36](https://github.com/incubateur-agriculture/pollen/issues/36)) ([404678d](https://github.com/incubateur-agriculture/pollen/commit/404678dfd774a6cab185cc5db179a3e70e303130))
+
 ## [0.5.0](https://github.com/incubateur-agriculture/pollen/compare/v0.4.0...v0.5.0) (2026-06-26)
 
 
